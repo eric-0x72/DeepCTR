@@ -588,10 +588,10 @@ class FM(Layer):
 
         concated_embeds_value = inputs
 
-        square_of_sum = tf.square(reduce_sum(
-            concated_embeds_value, axis=1, keep_dims=True))
-        sum_of_square = reduce_sum(
-            concated_embeds_value * concated_embeds_value, axis=1, keep_dims=True)
+        square_of_sum = tf.square(reduce_sum(concated_embeds_value, axis=1, keep_dims=True))  # 和的平方
+        sum_of_square = reduce_sum(concated_embeds_value * concated_embeds_value, axis=1, keep_dims=True)  # 平方的和
+
+        # 和的平方 - 平方的和
         cross_term = square_of_sum - sum_of_square
         cross_term = 0.5 * reduce_sum(cross_term, axis=2, keep_dims=False)
 
