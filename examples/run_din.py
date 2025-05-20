@@ -40,3 +40,7 @@ if __name__ == "__main__":
     model.compile('adam', 'binary_crossentropy',
                   metrics=['binary_crossentropy'])
     history = model.fit(x, y, verbose=1, epochs=10, validation_split=0.5)
+
+    import tensorflow as tf
+
+    tf.saved_model.save(model, './din')
